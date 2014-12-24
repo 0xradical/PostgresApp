@@ -12,6 +12,7 @@
 @interface PGResult : NSObject
 
 - (instancetype)initWithResult:(PGresult *)result;
+- (ExecStatusType)status;
 - (NSUInteger)rowsCount;
 - (NSUInteger)fieldsCount;
 - (NSString *)valueForRow:(NSUInteger)row AndColumn:(NSUInteger)column;

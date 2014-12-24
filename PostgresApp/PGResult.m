@@ -29,6 +29,11 @@
     return self;
 }
 
+- (ExecStatusType)status
+{
+    return PQresultStatus(_result);
+}
+
 - (NSUInteger)rowsCount
 {
     if (_rowsCount) {

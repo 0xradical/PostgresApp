@@ -17,9 +17,12 @@
 }
 
 @property (strong) IBOutlet NSWindow *window;
+@property (weak) IBOutlet NSSplitView *customQuerySplitView;
 @property (weak) IBOutlet NSTableView *queryResults;
 @property (weak) IBOutlet NSButton *queryButton;
 @property (unsafe_unretained) IBOutlet NSTextView *customQuery;
+@property (weak) IBOutlet NSView *errorView;
+@property (weak) IBOutlet NSTextField *errorText;
 
 @end
 
@@ -46,31 +49,46 @@
 
 - (IBAction)runQuery:(id)sender
 {
+    [_errorView setHidden:YES];
+    [_customQuerySplitView adjustSubviews];
+
     NSLog(@"Running query");
     _result = [_connection execute:[_customQuery string]];
     
-    NSLog(@"Adds/Removes columns");
-    NSArray *columns = [[_queryResults tableColumns] copy];
-    
-    for( int i=0; i < [columns count]; i++)
-    {
-        NSTableColumn *col = [columns objectAtIndex:i];
-        NSLog(@"removing column: %@", [col identifier]);
-        [_queryResults removeTableColumn:col];
+    if (_result && ([_result status] == PGRES_COMMAND_OK || [_result status] == PGRES_TUPLES_OK)) {
+        NSLog(@"Adds/Removes columns");
+        NSArray *columns = [[_queryResults tableColumns] copy];
+        
+        for( int i=0; i < [columns count]; i++)
+        {
+            NSTableColumn *col = [columns objectAtIndex:i];
+            NSLog(@"removing column: %@", [col identifier]);
+            [_queryResults removeTableColumn:col];
+        }
+        
+        for( int i=0; i < [_result fieldsCount]; i++)
+        {
+            NSTableColumn *column = [[NSTableColumn alloc] initWithIdentifier:[NSString stringWithFormat:@"%i", i]];
+            [column setEditable:NO];
+            [[column headerCell] setStringValue:[_result fieldForColumn:i]];
+            [_queryResults addTableColumn:column];
+        }
+        
+        [[_queryResults headerView] setNeedsDisplay:YES];
+        
+        NSLog(@"Reloading data");
+        [_queryResults reloadData];
+
+    }
+    else {
+        [_errorText setStringValue:[_connection lastErrorMessage]];
+        [_errorView setHidden:NO];
+        [_customQuerySplitView adjustSubviews];
+//        [_errorField setNeedsDisplay:YES];
+//        NSLog(@"%@", [_connection lastErrorMessage]);
+        
     }
     
-    for( int i=0; i < [_result fieldsCount]; i++)
-    {
-        NSTableColumn *column = [[NSTableColumn alloc] initWithIdentifier:[NSString stringWithFormat:@"%i", i]];
-        [column setEditable:NO];
-        [[column headerCell] setStringValue:[_result fieldForColumn:i]];
-        [_queryResults addTableColumn:column];
-    }
-    
-    [[_queryResults headerView] setNeedsDisplay:YES];
-    
-    NSLog(@"Reloading data");
-    [_queryResults reloadData];
 }
 
 #pragma mark -
