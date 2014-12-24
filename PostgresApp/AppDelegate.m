@@ -47,10 +47,6 @@
     [[self connection] setPassword:[[self password] stringValue]];
     
     [[self connection] connect];
-    
-    _dbWindowController = [[DBWindowController alloc] initWithConnection:[self connection]];
-    
-    [_dbWindowController showWindow:nil];
 }
 
 #pragma mark -
@@ -58,14 +54,15 @@
 
 - (void)connectionEstablished:(PGConnection *)connection
 {
-    [[self connectionMessage] setStringValue:@"Connected :)"];
-    [[self connectionMessage] setHidden:NO];
-
+    _dbWindowController = [[DBWindowController alloc] initWithConnection:[self connection]];
+    
+    [_dbWindowController showWindow:nil];
 }
 
 - (void)connectionFailed:(PGConnection *)connection
 {
-    [[self connectionMessage] setStringValue:@"Connection failed :("];
+    NSString *message = [NSString stringWithFormat:@"Connection failed: %@", [connection lastErrorMessage]];
+    [[self connectionMessage] setStringValue:message];
     [[self connectionMessage] setHidden:NO];
 
 }

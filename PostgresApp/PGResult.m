@@ -57,4 +57,11 @@
     
     return [NSString stringWithUTF8String:value];
 }
+
+- (NSString *)fieldForColumn:(NSUInteger)column
+{
+    const char* field = PQfname(_result, (int)column);
+    
+    return [NSString stringWithUTF8String:field];
+}
 @end

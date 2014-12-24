@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
+        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6254"/>
     </dependencies>
     <objects>
@@ -13,7 +14,7 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate">
             <connections>
-                <outlet property="connectionMessage" destination="wY5-mr-FCj" id="0o7-2C-RNc"/>
+                <outlet property="connectionMessage" destination="acw-tI-0gZ" id="cBm-bW-yGq"/>
                 <outlet property="password" destination="Yi7-St-wQP" id="XuA-IK-gnH"/>
                 <outlet property="user" destination="xGh-Be-Vmz" id="gjM-5f-60r"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
@@ -672,38 +673,30 @@
         <window title="PostgresApp" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="335" y="390" width="364" height="285"/>
+            <rect key="contentRect" x="335" y="390" width="382" height="286"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1280" height="778"/>
             <value key="minSize" type="size" width="364" height="285"/>
             <value key="maxSize" type="size" width="364" height="285"/>
             <view key="contentView" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="364" height="285"/>
+                <rect key="frame" x="0.0" y="0.0" width="382" height="286"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HMt-1W-pze">
-                        <rect key="frame" x="70" y="248" width="212" height="17"/>
+                        <rect key="frame" x="70" y="249" width="212" height="17"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Enter connection details below" id="PU6-4B-gjv">
                             <font key="font" metaFont="systemBold"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wY5-mr-FCj">
-                        <rect key="frame" x="164" y="51" width="38" height="17"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="aa0-n0-Ntf">
-                            <font key="font" metaFont="system"/>
-                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
                     <box autoresizesSubviews="NO" borderType="line" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="26O-3u-NbR">
-                        <rect key="frame" x="19" y="104" width="328" height="138"/>
+                        <rect key="frame" x="19" y="104" width="346" height="139"/>
                         <view key="contentView">
-                            <rect key="frame" x="1" y="1" width="326" height="136"/>
+                            <rect key="frame" x="1" y="1" width="344" height="137"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QWz-sD-5RZ">
-                                    <rect key="frame" x="47" y="102" width="36" height="17"/>
+                                    <rect key="frame" x="47" y="103" width="36" height="17"/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="User:" id="Dag-lg-B5O">
                                         <font key="font" metaFont="system"/>
                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -711,7 +704,7 @@
                                     </textFieldCell>
                                 </textField>
                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="en7-e3-slH">
-                                    <rect key="frame" x="16" y="69" width="66" height="17"/>
+                                    <rect key="frame" x="16" y="70" width="66" height="17"/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Password:" id="ISO-W5-Bmh">
                                         <font key="font" metaFont="system"/>
                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -719,7 +712,7 @@
                                     </textFieldCell>
                                 </textField>
                                 <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xGh-Be-Vmz">
-                                    <rect key="frame" x="103" y="102" width="205" height="22"/>
+                                    <rect key="frame" x="103" y="103" width="205" height="22"/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="b92-we-lgz">
                                         <font key="font" metaFont="system"/>
                                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -727,7 +720,7 @@
                                     </textFieldCell>
                                 </textField>
                                 <secureTextField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yi7-St-wQP">
-                                    <rect key="frame" x="103" y="68" width="205" height="22"/>
+                                    <rect key="frame" x="103" y="69" width="205" height="22"/>
                                     <secureTextFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" usesSingleLineMode="YES" id="tb1-fW-xHF">
                                         <font key="font" metaFont="system"/>
                                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -738,7 +731,7 @@
                                     </secureTextFieldCell>
                                 </secureTextField>
                                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WAi-sC-ntB">
-                                    <rect key="frame" x="222" y="7" width="92" height="32"/>
+                                    <rect key="frame" x="222" y="8" width="92" height="32"/>
                                     <buttonCell key="cell" type="push" title="Connect" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="gGB-dP-W0o">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
@@ -752,19 +745,30 @@
                         <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                         <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </box>
+                    <textField hidden="YES" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="acw-tI-0gZ">
+                        <rect key="frame" x="20" y="20" width="344" height="80"/>
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Multiline Label" id="pUd-vw-Yos">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="wY5-mr-FCj" firstAttribute="top" secondItem="26O-3u-NbR" secondAttribute="bottom" constant="40" id="6m0-6g-9We"/>
+                    <constraint firstItem="acw-tI-0gZ" firstAttribute="leading" secondItem="26O-3u-NbR" secondAttribute="leading" id="4XU-Hz-zyw"/>
                     <constraint firstAttribute="bottom" secondItem="26O-3u-NbR" secondAttribute="bottom" constant="108" id="HdV-os-Jy5"/>
                     <constraint firstAttribute="trailing" secondItem="26O-3u-NbR" secondAttribute="trailing" constant="20" id="Oo1-3o-zEW"/>
+                    <constraint firstItem="acw-tI-0gZ" firstAttribute="trailing" secondItem="26O-3u-NbR" secondAttribute="trailing" id="UWU-kq-8Qt"/>
                     <constraint firstItem="26O-3u-NbR" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="22" id="WlI-qQ-uzP"/>
                     <constraint firstItem="26O-3u-NbR" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="45" id="dEA-iU-uPt"/>
                     <constraint firstItem="26O-3u-NbR" firstAttribute="top" secondItem="HMt-1W-pze" secondAttribute="bottom" constant="8" symbolic="YES" id="hz6-IO-GHH"/>
+                    <constraint firstItem="acw-tI-0gZ" firstAttribute="top" secondItem="26O-3u-NbR" secondAttribute="bottom" constant="8" symbolic="YES" id="irT-qy-CH5"/>
                     <constraint firstItem="HMt-1W-pze" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="72" id="p1N-o1-XBb"/>
-                    <constraint firstItem="26O-3u-NbR" firstAttribute="centerX" secondItem="wY5-mr-FCj" secondAttribute="centerX" id="ssK-SL-e1p"/>
+                    <constraint firstAttribute="bottom" secondItem="acw-tI-0gZ" secondAttribute="bottom" constant="20" symbolic="YES" id="ttV-kk-Ky7"/>
+                    <constraint firstItem="acw-tI-0gZ" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="186" id="wkM-SD-wxF"/>
                 </constraints>
             </view>
-            <point key="canvasLocation" x="146" y="198.5"/>
+            <point key="canvasLocation" x="155" y="199"/>
         </window>
     </objects>
 </document>

@@ -18,8 +18,8 @@
 
 @property (strong) IBOutlet NSWindow *window;
 @property (weak) IBOutlet NSTableView *queryResults;
-
-@property (weak) IBOutlet NSButton *runQuery;
+@property (weak) IBOutlet NSButton *queryButton;
+@property (unsafe_unretained) IBOutlet NSTextView *customQuery;
 
 @end
 
@@ -47,7 +47,29 @@
 - (IBAction)runQuery:(id)sender
 {
     NSLog(@"Running query");
-    _result = [_connection execute:@"SELECT count(*) FROM users;"];
+    _result = [_connection execute:[_customQuery string]];
+    
+    NSLog(@"Adds/Removes columns");
+    NSArray *columns = [[_queryResults tableColumns] copy];
+    
+    for( int i=0; i < [columns count]; i++)
+    {
+        NSTableColumn *col = [columns objectAtIndex:i];
+        NSLog(@"removing column: %@", [col identifier]);
+        [_queryResults removeTableColumn:col];
+    }
+    
+    for( int i=0; i < [_result fieldsCount]; i++)
+    {
+        NSTableColumn *column = [[NSTableColumn alloc] initWithIdentifier:[NSString stringWithFormat:@"%i", i]];
+        [column setEditable:NO];
+        [[column headerCell] setStringValue:[_result fieldForColumn:i]];
+        [_queryResults addTableColumn:column];
+    }
+    
+    [[_queryResults headerView] setNeedsDisplay:YES];
+    
+    NSLog(@"Reloading data");
     [_queryResults reloadData];
 }
 
@@ -64,13 +86,7 @@
 
 - (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex
 {
-
-    if ([[aTableColumn identifier] isEqualTo:@"tc1"]) {
-        return [_result valueForRow:rowIndex AndColumn:0];
-    }
-    else {
-        return @"Nothing";
-    }        
+    return [_result valueForRow:rowIndex AndColumn:[[aTableColumn identifier] intValue]];
 }
 
 @end

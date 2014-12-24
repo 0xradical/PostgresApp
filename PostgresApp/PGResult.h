@@ -15,5 +15,6 @@
 - (NSUInteger)rowsCount;
 - (NSUInteger)fieldsCount;
 - (NSString *)valueForRow:(NSUInteger)row AndColumn:(NSUInteger)column;
+- (NSString *)fieldForColumn:(NSUInteger)column;
 
 @end

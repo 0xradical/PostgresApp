@@ -24,5 +24,6 @@
 - (BOOL)isConnected;
 - (BOOL)connect;
 - (PGResult *)execute:(NSString *)query;
+- (NSString *)lastErrorMessage;
 
 @end

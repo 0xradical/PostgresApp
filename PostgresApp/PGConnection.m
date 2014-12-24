@@ -16,7 +16,6 @@
 {
     PGconn *_connection;
     NSString *_connectionParameters;
-    NSString *_connectionError;
     id<PGConnectionDelegate> _delegate;
 }
 @end
@@ -67,7 +66,6 @@
     
     // Perform the connection
     if (!_connection || PQstatus(_connection) == CONNECTION_BAD) {
-        _connectionError = [[NSString alloc] initWithUTF8String:PQerrorMessage(_connection)];
         
         PQfinish(_connection);
         
@@ -81,6 +79,11 @@
         return YES;
     }
     
+}
+
+- (NSString *)lastErrorMessage
+{
+    return [[NSString alloc] initWithUTF8String:PQerrorMessage(_connection)];
 }
 
 #pragma mark -
@@ -167,6 +170,9 @@
     }
     else {
         NSLog(@"Polling error: %@", [[NSString alloc] initWithUTF8String:PQerrorMessage(_connection)]);
+        if (_delegate) {
+            [_delegate connectionFailed:self];
+        }
     }
     
 }
