@@ -14,7 +14,7 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate">
             <connections>
-                <outlet property="connectionMessage" destination="acw-tI-0gZ" id="cBm-bW-yGq"/>
+                <outlet property="connectionMessage" destination="PL7-gw-HIi" id="Epi-dC-Wxj"/>
                 <outlet property="password" destination="Yi7-St-wQP" id="XuA-IK-gnH"/>
                 <outlet property="user" destination="xGh-Be-Vmz" id="gjM-5f-60r"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
@@ -675,8 +675,8 @@
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="335" y="390" width="382" height="286"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1280" height="778"/>
-            <value key="minSize" type="size" width="364" height="285"/>
-            <value key="maxSize" type="size" width="364" height="285"/>
+            <value key="minSize" type="size" width="382" height="286"/>
+            <value key="maxSize" type="size" width="382" height="286"/>
             <view key="contentView" id="EiT-Mj-1SZ">
                 <rect key="frame" x="0.0" y="0.0" width="382" height="286"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -745,9 +745,9 @@
                         <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                         <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </box>
-                    <textField hidden="YES" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="acw-tI-0gZ">
-                        <rect key="frame" x="20" y="20" width="344" height="80"/>
-                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Multiline Label" id="pUd-vw-Yos">
+                    <textField hidden="YES" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PL7-gw-HIi">
+                        <rect key="frame" x="25" y="25" width="339" height="75"/>
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Multiline Label" id="feK-Gc-oLF">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -755,20 +755,15 @@
                     </textField>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="acw-tI-0gZ" firstAttribute="leading" secondItem="26O-3u-NbR" secondAttribute="leading" id="4XU-Hz-zyw"/>
-                    <constraint firstAttribute="bottom" secondItem="26O-3u-NbR" secondAttribute="bottom" constant="108" id="HdV-os-Jy5"/>
-                    <constraint firstAttribute="trailing" secondItem="26O-3u-NbR" secondAttribute="trailing" constant="20" id="Oo1-3o-zEW"/>
-                    <constraint firstItem="acw-tI-0gZ" firstAttribute="trailing" secondItem="26O-3u-NbR" secondAttribute="trailing" id="UWU-kq-8Qt"/>
-                    <constraint firstItem="26O-3u-NbR" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="22" id="WlI-qQ-uzP"/>
-                    <constraint firstItem="26O-3u-NbR" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="45" id="dEA-iU-uPt"/>
-                    <constraint firstItem="26O-3u-NbR" firstAttribute="top" secondItem="HMt-1W-pze" secondAttribute="bottom" constant="8" symbolic="YES" id="hz6-IO-GHH"/>
-                    <constraint firstItem="acw-tI-0gZ" firstAttribute="top" secondItem="26O-3u-NbR" secondAttribute="bottom" constant="8" symbolic="YES" id="irT-qy-CH5"/>
-                    <constraint firstItem="HMt-1W-pze" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="72" id="p1N-o1-XBb"/>
-                    <constraint firstAttribute="bottom" secondItem="acw-tI-0gZ" secondAttribute="bottom" constant="20" symbolic="YES" id="ttV-kk-Ky7"/>
-                    <constraint firstItem="acw-tI-0gZ" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="186" id="wkM-SD-wxF"/>
+                    <constraint firstItem="HMt-1W-pze" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="72" id="1Hp-31-Eid"/>
+                    <constraint firstItem="26O-3u-NbR" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="45" id="92G-TV-HCw"/>
+                    <constraint firstItem="26O-3u-NbR" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="22" id="WUR-DC-Rm5"/>
+                    <constraint firstItem="26O-3u-NbR" firstAttribute="top" secondItem="HMt-1W-pze" secondAttribute="bottom" constant="8" symbolic="YES" id="e2G-vd-pP4"/>
+                    <constraint firstAttribute="bottom" secondItem="26O-3u-NbR" secondAttribute="bottom" constant="108" id="hWD-ag-8UM"/>
+                    <constraint firstAttribute="trailing" secondItem="26O-3u-NbR" secondAttribute="trailing" constant="20" symbolic="YES" id="u6b-fm-0zJ"/>
                 </constraints>
             </view>
-            <point key="canvasLocation" x="155" y="199"/>
+            <point key="canvasLocation" x="281" y="206"/>
         </window>
     </objects>
 </document>
