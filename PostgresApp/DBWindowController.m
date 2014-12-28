@@ -20,7 +20,7 @@
 @property (weak) IBOutlet NSTableView *queryResults;
 @property (weak) IBOutlet NSButton *queryButton;
 @property (unsafe_unretained) IBOutlet NSTextView *customQuery;
-@property (weak) IBOutlet NSTextField *errorText;
+@property (unsafe_unretained) IBOutlet NSTextView *queryMessage;
 
 @end
 
@@ -47,7 +47,8 @@
 
 - (IBAction)runQuery:(id)sender
 {
-    NSLog(@"Running query");
+//    NSLog(@"Running query");
+    [_queryMessage setString:@"Running query ..."];
     _result = [_connection execute:[_customQuery string]];
     
     if (_result && ([_result status] == PGRES_COMMAND_OK || [_result status] == PGRES_TUPLES_OK)) {
@@ -71,12 +72,13 @@
         
         [[_queryResults headerView] setNeedsDisplay:YES];
         
-        NSLog(@"Reloading data");
+//        NSLog(@"Reloading data");
         [_queryResults reloadData];
+        [_queryMessage setString:@"Query OK"];
 
     }
     else {
-        [_errorText setStringValue:[_connection lastErrorMessage]];
+        [_queryMessage setString:[_connection lastErrorMessage]];
         
     }
     

@@ -8,7 +8,9 @@
         <customObject id="-2" userLabel="File's Owner" customClass="DBWindowController">
             <connections>
                 <outlet property="customQuery" destination="Cg2-Z9-pAd" id="mgD-cT-Bli"/>
+                <outlet property="errorMessage" destination="GeU-YG-iAh" id="SaL-Kg-CLD"/>
                 <outlet property="queryButton" destination="cBd-jy-aPM" id="3dN-d0-vAN"/>
+                <outlet property="queryMessage" destination="GeU-YG-iAh" id="to3-aL-Ke8"/>
                 <outlet property="queryResults" destination="jA6-6J-Pv4" id="Cgv-LA-07b"/>
                 <outlet property="window" destination="F0z-JX-Cv5" id="2oK-qm-dPR"/>
             </connections>
