@@ -83,7 +83,11 @@
 
 - (NSString *)lastErrorMessage
 {
-    return [[NSString alloc] initWithUTF8String:PQerrorMessage(_connection)];
+    if ([self isConnected]) {
+        return [[NSString alloc] initWithUTF8String:PQerrorMessage(_connection)];
+    } else {
+        return @"Could not connect to Postgres";
+    }
 }
 
 #pragma mark -
