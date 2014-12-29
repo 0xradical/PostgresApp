@@ -22,6 +22,8 @@
 		AFDE25C21A4A2EC4009B71F6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AFDE25C01A4A2EC4009B71F6 /* main.m */; };
 		AFDE25CA1A4A2F18009B71F6 /* libpq.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AFDE25C81A4A2F18009B71F6 /* libpq.a */; };
 		AFDE25CB1A4A2F18009B71F6 /* libpqtypes.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AFDE25C91A4A2F18009B71F6 /* libpqtypes.a */; };
+		AFEF8E581A5171E1006700FE /* NoodleLineNumberMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = AFEF8E551A5171E1006700FE /* NoodleLineNumberMarker.m */; };
+		AFEF8E591A5171E1006700FE /* NoodleLineNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = AFEF8E571A5171E1006700FE /* NoodleLineNumberView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,10 @@
 		AFDE25CD1A4A2F74009B71F6 /* postgres_ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = postgres_ext.h; path = PostgresApp/postgres_ext.h; sourceTree = SOURCE_ROOT; };
 		AFDE25CE1A4A2F74009B71F6 /* pg_config_ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = pg_config_ext.h; path = PostgresApp/pg_config_ext.h; sourceTree = SOURCE_ROOT; };
 		AFDE25CF1A4A2F74009B71F6 /* libpqtypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = libpqtypes.h; path = PostgresApp/libpqtypes.h; sourceTree = SOURCE_ROOT; };
+		AFEF8E541A5171E1006700FE /* NoodleLineNumberMarker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoodleLineNumberMarker.h; path = PostgresApp/NoodleLineNumberMarker.h; sourceTree = SOURCE_ROOT; };
+		AFEF8E551A5171E1006700FE /* NoodleLineNumberMarker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoodleLineNumberMarker.m; path = PostgresApp/NoodleLineNumberMarker.m; sourceTree = SOURCE_ROOT; };
+		AFEF8E561A5171E1006700FE /* NoodleLineNumberView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoodleLineNumberView.h; path = PostgresApp/NoodleLineNumberView.h; sourceTree = SOURCE_ROOT; };
+		AFEF8E571A5171E1006700FE /* NoodleLineNumberView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoodleLineNumberView.m; path = PostgresApp/NoodleLineNumberView.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +190,10 @@
 		AF09F1D01A495F8D00ED61E8 /* views */ = {
 			isa = PBXGroup;
 			children = (
+				AFEF8E541A5171E1006700FE /* NoodleLineNumberMarker.h */,
+				AFEF8E551A5171E1006700FE /* NoodleLineNumberMarker.m */,
+				AFEF8E561A5171E1006700FE /* NoodleLineNumberView.h */,
+				AFEF8E571A5171E1006700FE /* NoodleLineNumberView.m */,
 				AFAAC6081A4A35C800F6D561 /* MainMenu.xib */,
 				AFDE25AE1A4A2E26009B71F6 /* DBWindowController.xib */,
 			);
@@ -329,11 +339,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFEF8E591A5171E1006700FE /* NoodleLineNumberView.m in Sources */,
 				AFDE25B51A4A2E3B009B71F6 /* PGConnection.m in Sources */,
 				AFDE25B61A4A2E3B009B71F6 /* PGResult.m in Sources */,
 				AFDE25BF1A4A2EAF009B71F6 /* AppDelegate.m in Sources */,
 				AFDE25AF1A4A2E26009B71F6 /* DBWindowController.m in Sources */,
 				AFDE25C21A4A2EC4009B71F6 /* main.m in Sources */,
+				AFEF8E581A5171E1006700FE /* NoodleLineNumberMarker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

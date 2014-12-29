@@ -9,11 +9,13 @@
 #import "DBWindowController.h"
 #import "PGConnection.h"
 #import "PGResult.h"
+#import "NoodleLineNumberView.h"
 
 @interface DBWindowController ()
 {
     PGConnection *_connection;
     PGResult *_result;
+    NoodleLineNumberView *_lineNumberView;
 }
 
 @property (strong) IBOutlet NSWindow *window;
@@ -40,6 +42,18 @@
 - (void)windowDidLoad {
     [super windowDidLoad];
     // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
+}
+
+- (void)awakeFromNib
+{
+    self.customQuery.font = [NSFont userFixedPitchFontOfSize:14.0f];
+    
+    _lineNumberView = [[NoodleLineNumberView alloc] initWithScrollView:[self.customQuery enclosingScrollView]];
+    
+    [[self.customQuery enclosingScrollView] setVerticalRulerView:_lineNumberView];
+    [[self.customQuery enclosingScrollView] setHasHorizontalRuler:NO];
+    [[self.customQuery enclosingScrollView] setHasVerticalRuler:YES];
+    [[self.customQuery enclosingScrollView] setRulersVisible:YES];
 }
 
 #pragma mark -

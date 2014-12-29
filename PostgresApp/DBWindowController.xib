@@ -20,30 +20,30 @@
         <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" animationBehavior="default" id="F0z-JX-Cv5">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="150" y="158" width="527" height="551"/>
+            <rect key="contentRect" x="150" y="158" width="548" height="517"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1280" height="778"/>
             <value key="minSize" type="size" width="548" height="517"/>
             <view key="contentView" id="se5-gp-TjO">
-                <rect key="frame" x="0.0" y="0.0" width="527" height="551"/>
+                <rect key="frame" x="0.0" y="0.0" width="548" height="517"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <tabView translatesAutoresizingMaskIntoConstraints="NO" id="4Nf-vH-81M">
-                        <rect key="frame" x="14" y="10" width="500" height="535"/>
+                        <rect key="frame" x="14" y="10" width="521" height="501"/>
                         <font key="font" metaFont="system"/>
                         <tabViewItems>
                             <tabViewItem label="Structure" identifier="1" id="spN-KH-mXK">
                                 <view key="view" id="Q0T-v1-C5j">
-                                    <rect key="frame" x="10" y="33" width="480" height="455"/>
+                                    <rect key="frame" x="10" y="33" width="501" height="455"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </view>
                             </tabViewItem>
                             <tabViewItem label="Custom Query" identifier="2" id="E6a-VB-0lO">
                                 <view key="view" id="6gX-4U-4gF">
-                                    <rect key="frame" x="10" y="33" width="480" height="489"/>
+                                    <rect key="frame" x="10" y="33" width="501" height="455"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <splitView dividerStyle="paneSplitter" translatesAutoresizingMaskIntoConstraints="NO" id="0Zx-en-uiq">
-                                            <rect key="frame" x="17" y="17" width="446" height="469"/>
+                                            <rect key="frame" x="17" y="-17" width="446" height="469"/>
                                             <subviews>
                                                 <customView id="83S-de-0TL">
                                                     <rect key="frame" x="0.0" y="0.0" width="446" height="126"/>
@@ -255,7 +255,7 @@
             <connections>
                 <outlet property="delegate" destination="-2" id="0bl-1N-AYu"/>
             </connections>
-            <point key="canvasLocation" x="635.5" y="-27.5"/>
+            <point key="canvasLocation" x="635" y="-27.5"/>
         </window>
     </objects>
     <resources>
