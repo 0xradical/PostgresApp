@@ -69,4 +69,10 @@
     
     return [NSString stringWithUTF8String:field];
 }
+
+- (void)dealloc
+{
+    PQclear(_result);
+}
+
 @end
