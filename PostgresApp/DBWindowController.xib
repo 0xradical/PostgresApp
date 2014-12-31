@@ -41,7 +41,7 @@
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" columnReordering="NO" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" id="wTR-6w-BhE">
-                                                    <rect key="frame" x="0.0" y="0.0" width="238" height="117"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="190" height="19"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <size key="intercellSpacing" width="3" height="2"/>
                                                     <color key="backgroundColor" name="_sourceListBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -195,7 +195,7 @@
                                                                                             </tableColumn>
                                                                                         </tableColumns>
                                                                                         <connections>
-                                                                                            <outlet property="dataSource" destination="-2" id="mq5-SA-BOg"/>
+                                                                                            <outlet property="dataSource" destination="2s4-gd-93J" id="Fbx-rn-P9x"/>
                                                                                         </connections>
                                                                                     </tableView>
                                                                                 </subviews>
@@ -228,7 +228,7 @@
                                                                                 <font key="font" metaFont="cellTitle"/>
                                                                             </buttonCell>
                                                                             <connections>
-                                                                                <action selector="runQuery:" target="-2" id="4c1-4e-MRW"/>
+                                                                                <action selector="runQuery:" target="2s4-gd-93J" id="qL5-65-6Mt"/>
                                                                             </connections>
                                                                         </button>
                                                                     </subviews>
@@ -337,6 +337,14 @@
             </connections>
             <point key="canvasLocation" x="769" y="-108"/>
         </window>
+        <viewController id="2s4-gd-93J" customClass="CustomQueryController">
+            <connections>
+                <outlet property="customQuery" destination="Cg2-Z9-pAd" id="ZVq-r7-37w"/>
+                <outlet property="dbWindowController" destination="-2" id="imP-gR-6dn"/>
+                <outlet property="queryMessage" destination="GeU-YG-iAh" id="LjE-Rn-mMZ"/>
+                <outlet property="queryResults" destination="jA6-6J-Pv4" id="yGI-zC-el1"/>
+            </connections>
+        </viewController>
     </objects>
     <resources>
         <image name="button_bar_spacer" width="10" height="23"/>

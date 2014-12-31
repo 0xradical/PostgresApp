@@ -9,8 +9,9 @@
 #import <Cocoa/Cocoa.h>
 @class PGConnection;
 
-@interface DBWindowController : NSWindowController <NSTableViewDataSource>
+@interface DBWindowController : NSWindowController
 
 - (instancetype)initWithConnection:(PGConnection *)connection;
+- (PGConnection *)connection;
 
 @end

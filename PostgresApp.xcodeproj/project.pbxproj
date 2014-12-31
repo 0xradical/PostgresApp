@@ -11,6 +11,7 @@
 		AF09F1C91A48CB5000ED61E8 /* libssl.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AF09F1C81A48CB5000ED61E8 /* libssl.dylib */; };
 		AF09F1F71A49AD0100ED61E8 /* button_bar_spacer.png in Resources */ = {isa = PBXBuildFile; fileRef = AF09F1F51A49AD0100ED61E8 /* button_bar_spacer.png */; };
 		AF09F1F81A49AD0100ED61E8 /* button_bar_spacer@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AF09F1F61A49AD0100ED61E8 /* button_bar_spacer@2x.png */; };
+		AF611D311A53A36E004804AF /* CustomQueryController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF611D301A53A36E004804AF /* CustomQueryController.m */; };
 		AFAAC5FB1A4A32C300F6D561 /* PostgresAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AFAAC5FA1A4A32C300F6D561 /* PostgresAppTests.m */; };
 		AFAAC60A1A4A35C800F6D561 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFAAC6081A4A35C800F6D561 /* MainMenu.xib */; };
 		AFDE25AF1A4A2E26009B71F6 /* DBWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFDE25AD1A4A2E26009B71F6 /* DBWindowController.m */; };
@@ -43,6 +44,8 @@
 		AF09F1C81A48CB5000ED61E8 /* libssl.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libssl.dylib; path = usr/lib/libssl.dylib; sourceTree = SDKROOT; };
 		AF09F1F51A49AD0100ED61E8 /* button_bar_spacer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_bar_spacer.png; sourceTree = "<group>"; };
 		AF09F1F61A49AD0100ED61E8 /* button_bar_spacer@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_bar_spacer@2x.png"; sourceTree = "<group>"; };
+		AF611D2F1A53A36E004804AF /* CustomQueryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomQueryController.h; sourceTree = SOURCE_ROOT; };
+		AF611D301A53A36E004804AF /* CustomQueryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomQueryController.m; sourceTree = SOURCE_ROOT; };
 		AFAAC5FA1A4A32C300F6D561 /* PostgresAppTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostgresAppTests.m; sourceTree = SOURCE_ROOT; };
 		AFAAC6091A4A35C800F6D561 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = PostgresApp/Base.lproj/MainMenu.xib; sourceTree = SOURCE_ROOT; };
 		AFDE25AC1A4A2E26009B71F6 /* DBWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBWindowController.h; path = PostgresApp/DBWindowController.h; sourceTree = SOURCE_ROOT; };
@@ -216,6 +219,8 @@
 			children = (
 				AFDE25AC1A4A2E26009B71F6 /* DBWindowController.h */,
 				AFDE25AD1A4A2E26009B71F6 /* DBWindowController.m */,
+				AF611D2F1A53A36E004804AF /* CustomQueryController.h */,
+				AF611D301A53A36E004804AF /* CustomQueryController.m */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -346,6 +351,7 @@
 				AFDE25AF1A4A2E26009B71F6 /* DBWindowController.m in Sources */,
 				AFDE25C21A4A2EC4009B71F6 /* main.m in Sources */,
 				AFEF8E581A5171E1006700FE /* NoodleLineNumberMarker.m in Sources */,
+				AF611D311A53A36E004804AF /* CustomQueryController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
