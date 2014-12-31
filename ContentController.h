@@ -1,5 +1,5 @@
 //
-//  TablesController.h
+//  ContentController.h
 //  PostgresApp
 //
 //  Created by thiago on 12/31/14.
@@ -8,7 +8,6 @@
 
 #import <Cocoa/Cocoa.h>
 
-
-@interface TablesController : NSViewController<NSTableViewDataSource>
+@interface ContentController : NSViewController<NSTableViewDataSource>
 
 @end

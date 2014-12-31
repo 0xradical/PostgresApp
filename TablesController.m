@@ -8,6 +8,7 @@
 
 #import "TablesController.h"
 #import "DBWindowController.h"
+#import "Notifications.h"
 #import "PGConnection.h"
 #import "PGResult.h"
 
@@ -49,6 +50,27 @@
 - (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex
 {
     return [_result valueForRow:rowIndex AndColumn:0];
+}
+
+#pragma mark -
+#pragma NSTableView delegate methods
+
+- (void)tableViewSelectionDidChange:(NSNotification *)aNotification{
+
+    NSTableView *table = [aNotification object];
+    
+    NSInteger selectedRow = [table selectedRow];
+    
+    if (selectedRow != -1) {
+        
+        NSLog(@"Selected row: %ld", selectedRow);
+        NSTableColumn *column = [[table tableColumns] objectAtIndex:0];
+        
+        NSCell *currentTable = [column dataCellForRow:selectedRow];
+        
+        // Announce that current table changed
+        [[NSNotificationCenter defaultCenter] postNotificationName:kTableCellWasSelected object:        [currentTable stringValue]];
+    }
 }
 
 #pragma mark -

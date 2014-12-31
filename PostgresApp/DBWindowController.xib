@@ -63,6 +63,7 @@
                                                     </tableColumns>
                                                     <connections>
                                                         <outlet property="dataSource" destination="Qd5-Fs-ZYU" id="fPy-wg-cqK"/>
+                                                        <outlet property="delegate" destination="Qd5-Fs-ZYU" id="Z40-dR-dfq"/>
                                                     </connections>
                                                 </tableView>
                                             </subviews>
@@ -101,8 +102,63 @@
                                             </tabViewItem>
                                             <tabViewItem label="Content" identifier="" id="lgJ-sG-lhd">
                                                 <view key="view" id="S6c-6Y-gC1">
-                                                    <rect key="frame" x="10" y="33" width="583" height="455"/>
+                                                    <rect key="frame" x="10" y="33" width="610" height="478"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    <subviews>
+                                                        <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1KJ-RM-CJc">
+                                                            <rect key="frame" x="17" y="8" width="576" height="467"/>
+                                                            <clipView key="contentView" id="f53-Jj-jqx">
+                                                                <rect key="frame" x="1" y="17" width="238" height="117"/>
+                                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                <subviews>
+                                                                    <tableView focusRingType="none" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="none" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" headerView="Xlt-Qy-ARZ" id="ZWX-QK-2mz">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="238" height="117"/>
+                                                                        <autoresizingMask key="autoresizingMask"/>
+                                                                        <size key="intercellSpacing" width="3" height="2"/>
+                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                        <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                                                        <tableColumns>
+                                                                            <tableColumn width="116" minWidth="40" maxWidth="1000" id="H2w-se-vPu">
+                                                                                <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
+                                                                                    <font key="font" metaFont="smallSystem"/>
+                                                                                    <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                                                    <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                                                                </tableHeaderCell>
+                                                                                <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="VUx-2k-eOA">
+                                                                                    <font key="font" metaFont="system"/>
+                                                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                                    <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                                </textFieldCell>
+                                                                                <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                                            </tableColumn>
+                                                                        </tableColumns>
+                                                                        <connections>
+                                                                            <outlet property="dataSource" destination="bmb-rN-AFw" id="MAb-kn-cER"/>
+                                                                        </connections>
+                                                                    </tableView>
+                                                                </subviews>
+                                                                <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                            </clipView>
+                                                            <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="5tt-sW-guu">
+                                                                <rect key="frame" x="1" y="119" width="223" height="15"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                            </scroller>
+                                                            <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="yTu-CO-cJ9">
+                                                                <rect key="frame" x="224" y="17" width="15" height="102"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                            </scroller>
+                                                            <tableHeaderView key="headerView" id="Xlt-Qy-ARZ">
+                                                                <rect key="frame" x="0.0" y="0.0" width="238" height="17"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                            </tableHeaderView>
+                                                        </scrollView>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="1KJ-RM-CJc" secondAttribute="bottom" constant="8" id="2a8-7L-o6i"/>
+                                                        <constraint firstItem="1KJ-RM-CJc" firstAttribute="leading" secondItem="S6c-6Y-gC1" secondAttribute="leading" constant="17" id="7nM-yV-emR"/>
+                                                        <constraint firstItem="1KJ-RM-CJc" firstAttribute="top" secondItem="S6c-6Y-gC1" secondAttribute="top" constant="3" id="IWl-AP-j0x"/>
+                                                        <constraint firstAttribute="trailing" secondItem="1KJ-RM-CJc" secondAttribute="trailing" constant="17" id="Qjc-Kq-B5r"/>
+                                                    </constraints>
                                                 </view>
                                             </tabViewItem>
                                             <tabViewItem label="Custom Query" identifier="2" id="E6a-VB-0lO">
@@ -352,6 +408,12 @@
             <connections>
                 <outlet property="dbWindowController" destination="-2" id="KbM-qj-qbl"/>
                 <outlet property="tables" destination="wTR-6w-BhE" id="EvD-FQ-ctV"/>
+            </connections>
+        </viewController>
+        <viewController id="bmb-rN-AFw" customClass="ContentController">
+            <connections>
+                <outlet property="content" destination="ZWX-QK-2mz" id="huD-KQ-ax5"/>
+                <outlet property="dbWindowController" destination="-2" id="oAf-8x-UZk"/>
             </connections>
         </viewController>
     </objects>

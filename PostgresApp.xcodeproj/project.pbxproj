@@ -13,6 +13,8 @@
 		AF09F1F81A49AD0100ED61E8 /* button_bar_spacer@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AF09F1F61A49AD0100ED61E8 /* button_bar_spacer@2x.png */; };
 		AF611D311A53A36E004804AF /* CustomQueryController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF611D301A53A36E004804AF /* CustomQueryController.m */; };
 		AF611D341A53A9AD004804AF /* TablesController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF611D331A53A9AD004804AF /* TablesController.m */; };
+		AF611D3A1A54576F004804AF /* ContentController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF611D391A54576F004804AF /* ContentController.m */; };
+		AF611D3E1A546291004804AF /* Notifications.m in Sources */ = {isa = PBXBuildFile; fileRef = AF611D3D1A546291004804AF /* Notifications.m */; };
 		AFAAC5FB1A4A32C300F6D561 /* PostgresAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AFAAC5FA1A4A32C300F6D561 /* PostgresAppTests.m */; };
 		AFAAC60A1A4A35C800F6D561 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFAAC6081A4A35C800F6D561 /* MainMenu.xib */; };
 		AFDE25AF1A4A2E26009B71F6 /* DBWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFDE25AD1A4A2E26009B71F6 /* DBWindowController.m */; };
@@ -49,6 +51,10 @@
 		AF611D301A53A36E004804AF /* CustomQueryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomQueryController.m; sourceTree = SOURCE_ROOT; };
 		AF611D321A53A9AD004804AF /* TablesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TablesController.h; sourceTree = SOURCE_ROOT; };
 		AF611D331A53A9AD004804AF /* TablesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TablesController.m; sourceTree = SOURCE_ROOT; };
+		AF611D381A54576F004804AF /* ContentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentController.h; sourceTree = SOURCE_ROOT; };
+		AF611D391A54576F004804AF /* ContentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentController.m; sourceTree = SOURCE_ROOT; };
+		AF611D3C1A545964004804AF /* Notifications.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Notifications.h; sourceTree = SOURCE_ROOT; };
+		AF611D3D1A546291004804AF /* Notifications.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Notifications.m; sourceTree = SOURCE_ROOT; };
 		AFAAC5FA1A4A32C300F6D561 /* PostgresAppTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostgresAppTests.m; sourceTree = SOURCE_ROOT; };
 		AFAAC6091A4A35C800F6D561 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = PostgresApp/Base.lproj/MainMenu.xib; sourceTree = SOURCE_ROOT; };
 		AFDE25AC1A4A2E26009B71F6 /* DBWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBWindowController.h; path = PostgresApp/DBWindowController.h; sourceTree = SOURCE_ROOT; };
@@ -125,6 +131,7 @@
 		AF09F1751A489BF600ED61E8 /* PostgresApp */ = {
 			isa = PBXGroup;
 			children = (
+				AF611D3B1A54592F004804AF /* constants */,
 				AFDE25BD1A4A2EAF009B71F6 /* AppDelegate.h */,
 				AFDE25BE1A4A2EAF009B71F6 /* AppDelegate.m */,
 				AFDE25BB1A4A2EA2009B71F6 /* Images.xcassets */,
@@ -226,6 +233,8 @@
 				AF611D301A53A36E004804AF /* CustomQueryController.m */,
 				AF611D321A53A9AD004804AF /* TablesController.h */,
 				AF611D331A53A9AD004804AF /* TablesController.m */,
+				AF611D381A54576F004804AF /* ContentController.h */,
+				AF611D391A54576F004804AF /* ContentController.m */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -245,6 +254,15 @@
 				AF09F1F61A49AD0100ED61E8 /* button_bar_spacer@2x.png */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		AF611D3B1A54592F004804AF /* constants */ = {
+			isa = PBXGroup;
+			children = (
+				AF611D3C1A545964004804AF /* Notifications.h */,
+				AF611D3D1A546291004804AF /* Notifications.m */,
+			);
+			name = constants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -355,7 +373,9 @@
 				AFDE25B61A4A2E3B009B71F6 /* PGResult.m in Sources */,
 				AFDE25BF1A4A2EAF009B71F6 /* AppDelegate.m in Sources */,
 				AFDE25AF1A4A2E26009B71F6 /* DBWindowController.m in Sources */,
+				AF611D3E1A546291004804AF /* Notifications.m in Sources */,
 				AFDE25C21A4A2EC4009B71F6 /* main.m in Sources */,
+				AF611D3A1A54576F004804AF /* ContentController.m in Sources */,
 				AFEF8E581A5171E1006700FE /* NoodleLineNumberMarker.m in Sources */,
 				AF611D311A53A36E004804AF /* CustomQueryController.m in Sources */,
 			);
