@@ -61,6 +61,9 @@
                                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                         </tableColumn>
                                                     </tableColumns>
+                                                    <connections>
+                                                        <outlet property="dataSource" destination="Qd5-Fs-ZYU" id="fPy-wg-cqK"/>
+                                                    </connections>
                                                 </tableView>
                                             </subviews>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -343,6 +346,12 @@
                 <outlet property="dbWindowController" destination="-2" id="imP-gR-6dn"/>
                 <outlet property="queryMessage" destination="GeU-YG-iAh" id="LjE-Rn-mMZ"/>
                 <outlet property="queryResults" destination="jA6-6J-Pv4" id="yGI-zC-el1"/>
+            </connections>
+        </viewController>
+        <viewController id="Qd5-Fs-ZYU" customClass="TablesController">
+            <connections>
+                <outlet property="dbWindowController" destination="-2" id="KbM-qj-qbl"/>
+                <outlet property="tables" destination="wTR-6w-BhE" id="EvD-FQ-ctV"/>
             </connections>
         </viewController>
     </objects>
