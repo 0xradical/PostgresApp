@@ -61,7 +61,6 @@
 
 - (IBAction)runQuery:(id)sender
 {
-//    NSLog(@"Running query");
     [_queryMessage setString:@"Running query ..."];
     _result = [_connection execute:[_customQuery string]];
     
@@ -86,7 +85,6 @@
         
         [[_queryResults headerView] setNeedsDisplay:YES];
         
-//        NSLog(@"Reloading data");
         [_queryResults reloadData];
         [_queryMessage setString:@"Query OK"];
 

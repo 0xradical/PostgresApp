@@ -50,9 +50,9 @@
     if (_fieldsCount) {
         return _fieldsCount;
     }
-    
+
     _fieldsCount = PQnfields(_result);
-    
+
     return _fieldsCount;
 }
 

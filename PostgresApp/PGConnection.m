@@ -181,4 +181,9 @@
     
 }
 
+- (void)dealloc
+{
+    NSLog(@"Deallocing connection");
+}
+
 @end
