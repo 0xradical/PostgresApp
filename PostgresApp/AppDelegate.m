@@ -32,6 +32,8 @@
     [self setConnection:connection];
     
     _dbWindowController = [[DBWindowController alloc] initWithConnection:[self connection]];
+    
+    NSLog(@"Application finished launching");
 
 }
 

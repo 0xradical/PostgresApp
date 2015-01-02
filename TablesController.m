@@ -56,20 +56,12 @@
 #pragma NSTableView delegate methods
 
 - (void)tableViewSelectionDidChange:(NSNotification *)aNotification{
-
-    NSTableView *table = [aNotification object];
     
-    NSInteger selectedRow = [table selectedRow];
+    NSInteger selectedRow = [_tables selectedRow];
     
     if (selectedRow != -1) {
-        
-        NSLog(@"Selected row: %ld", selectedRow);
-        NSTableColumn *column = [[table tableColumns] objectAtIndex:0];
-        
-        NSCell *currentTable = [column dataCellForRow:selectedRow];
-        
         // Announce that current table changed
-        [[NSNotificationCenter defaultCenter] postNotificationName:kTableCellWasSelected object:        [currentTable stringValue]];
+        [[NSNotificationCenter defaultCenter] postNotificationName:kTableCellWasSelected object:[_result valueForRow:selectedRow AndColumn:0]];
     }
 }
 
