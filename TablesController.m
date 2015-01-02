@@ -55,6 +55,7 @@
 #pragma mark -
 #pragma NSTableView delegate methods
 
+// http://stackoverflow.com/questions/25468456/getting-selected-value-from-nstableview#answer-25468898
 - (void)tableViewSelectionDidChange:(NSNotification *)aNotification{
     
     NSInteger selectedRow = [_tables selectedRow];
