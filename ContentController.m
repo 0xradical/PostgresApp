@@ -44,6 +44,8 @@
 
 - (void)loadCurrentTableData:(NSNotification *)aNotification
 {
+     [_previous setEnabled:NO];
+    
     _currentTable = [aNotification object];
     _offset = 0;
         
@@ -63,6 +65,14 @@
     NSString *query = [NSString stringWithFormat:@"SELECT * FROM %@ OFFSET %@ LIMIT 20", _currentTable, @(_offset)];
     
     [self loadContentByQuery:query];
+    
+    if (![_next isEnabled]) {
+        [_next setEnabled:YES];
+    }
+    
+    if (_offset == 0) {
+        [_previous setEnabled:NO];
+    }
 }
 
 - (IBAction)fetchNext:(id)sender
@@ -72,6 +82,14 @@
     NSString *query = [NSString stringWithFormat:@"SELECT * FROM %@ OFFSET %@ LIMIT 20", _currentTable, @(_offset)];
     
     [self loadContentByQuery:query];
+    
+    if ([_result rowsCount] < 20) {
+        [_next setEnabled:NO];
+    }
+    
+    if (![_previous isEnabled]) {
+        [_previous setEnabled:YES];
+    }
     
 }
 
