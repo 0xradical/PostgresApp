@@ -72,7 +72,7 @@
 
 - (void)setValue:(NSString *)value forRow:(NSUInteger)row AndColumn:(NSUInteger)column
 {
-    char *val = malloc(sizeof(char*)*([value length] + 1));
+    char *val = malloc(sizeof(char)*([value length] + 1));
     
     strcpy(val, [value UTF8String]);
     
