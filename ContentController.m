@@ -104,9 +104,20 @@
 
 #pragma mark NSTableViewDelegate
 
+// Getter
 - (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex
 {
     return [_result valueForRow:rowIndex AndColumn:[[aTableColumn identifier] intValue]];
+}
+
+// Setter
+- (void)tableView:(NSTableView *)tableView setObjectValue:(id)object forTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)row
+{
+    NSUInteger fieldIndex = [[aTableColumn identifier] intValue];
+    
+    NSString *query = [NSString stringWithFormat:@"UPDATE %@ SET %@ = '%@' WHERE id = %@", _currentTable,[_result fieldForColumn:fieldIndex], object, [_result valueForRow:row AndColumn:0]];
+    
+    [[self connection] execute:query];
 }
 
 #pragma mark -
@@ -135,7 +146,7 @@
     for( int i=0; i < [_result fieldsCount]; i++)
     {
         NSTableColumn *column = [[NSTableColumn alloc] initWithIdentifier:[NSString stringWithFormat:@"%i", i]];
-        [column setEditable:NO];
+        [column setEditable:YES];
         [[column headerCell] setStringValue:[_result fieldForColumn:i]];
         [_content addTableColumn:column];
     }
