@@ -106,13 +106,13 @@
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
                                                         <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1KJ-RM-CJc">
-                                                            <rect key="frame" x="17" y="8" width="576" height="467"/>
+                                                            <rect key="frame" x="17" y="58" width="576" height="417"/>
                                                             <clipView key="contentView" id="f53-Jj-jqx">
                                                                 <rect key="frame" x="1" y="17" width="238" height="117"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                 <subviews>
                                                                     <tableView focusRingType="none" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="none" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" headerView="Xlt-Qy-ARZ" id="ZWX-QK-2mz">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="238" height="117"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="119" height="19"/>
                                                                         <autoresizingMask key="autoresizingMask"/>
                                                                         <size key="intercellSpacing" width="3" height="2"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -152,12 +152,36 @@
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                             </tableHeaderView>
                                                         </scrollView>
+                                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="CX8-mm-z31">
+                                                            <rect key="frame" x="529" y="10" width="70" height="32"/>
+                                                            <buttonCell key="cell" type="push" title="Next" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="dnY-SN-hkb">
+                                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                                <font key="font" metaFont="system"/>
+                                                            </buttonCell>
+                                                            <connections>
+                                                                <action selector="fetchNext:" target="bmb-rN-AFw" id="Ydx-Wc-bMP"/>
+                                                            </connections>
+                                                        </button>
+                                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Bh2-8N-eQW">
+                                                            <rect key="frame" x="436" y="10" width="93" height="32"/>
+                                                            <buttonCell key="cell" type="push" title="Previous" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="tYZ-13-4Pe">
+                                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                                <font key="font" metaFont="system"/>
+                                                            </buttonCell>
+                                                            <connections>
+                                                                <action selector="fetchPrevious:" target="bmb-rN-AFw" id="D9J-1k-tnj"/>
+                                                            </connections>
+                                                        </button>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstAttribute="bottom" secondItem="1KJ-RM-CJc" secondAttribute="bottom" constant="8" id="2a8-7L-o6i"/>
+                                                        <constraint firstItem="Bh2-8N-eQW" firstAttribute="top" secondItem="1KJ-RM-CJc" secondAttribute="bottom" constant="20" id="0ei-At-aOk"/>
                                                         <constraint firstItem="1KJ-RM-CJc" firstAttribute="leading" secondItem="S6c-6Y-gC1" secondAttribute="leading" constant="17" id="7nM-yV-emR"/>
+                                                        <constraint firstAttribute="trailing" secondItem="CX8-mm-z31" secondAttribute="trailing" constant="17" id="CLk-HW-UpP"/>
                                                         <constraint firstItem="1KJ-RM-CJc" firstAttribute="top" secondItem="S6c-6Y-gC1" secondAttribute="top" constant="3" id="IWl-AP-j0x"/>
+                                                        <constraint firstItem="CX8-mm-z31" firstAttribute="top" secondItem="1KJ-RM-CJc" secondAttribute="bottom" constant="20" id="N0g-L5-3gP"/>
                                                         <constraint firstAttribute="trailing" secondItem="1KJ-RM-CJc" secondAttribute="trailing" constant="17" id="Qjc-Kq-B5r"/>
+                                                        <constraint firstAttribute="bottom" secondItem="1KJ-RM-CJc" secondAttribute="bottom" constant="58" id="dbe-xr-eOE"/>
+                                                        <constraint firstItem="CX8-mm-z31" firstAttribute="leading" secondItem="Bh2-8N-eQW" secondAttribute="trailing" constant="12" id="osN-kz-lrH"/>
                                                     </constraints>
                                                 </view>
                                             </tabViewItem>
@@ -414,6 +438,8 @@
             <connections>
                 <outlet property="content" destination="ZWX-QK-2mz" id="huD-KQ-ax5"/>
                 <outlet property="dbWindowController" destination="-2" id="oAf-8x-UZk"/>
+                <outlet property="next" destination="CX8-mm-z31" id="h6R-ma-HVN"/>
+                <outlet property="previous" destination="Bh2-8N-eQW" id="iMb-xq-unC"/>
             </connections>
         </viewController>
     </objects>
