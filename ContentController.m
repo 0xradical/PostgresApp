@@ -118,6 +118,7 @@
     NSString *query = [NSString stringWithFormat:@"UPDATE %@ SET %@ = '%@' WHERE id = %@", _currentTable,[_result fieldForColumn:fieldIndex], object, [_result valueForRow:row AndColumn:0]];
     
     [[self connection] execute:query];
+    [_result setValue:object forRow:row AndColumn:fieldIndex];
 }
 
 #pragma mark -

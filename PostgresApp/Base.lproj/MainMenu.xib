@@ -681,7 +681,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="382" height="286"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HMt-1W-pze">
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HMt-1W-pze">
                         <rect key="frame" x="70" y="249" width="212" height="17"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Enter connection details below" id="PU6-4B-gjv">
                             <font key="font" metaFont="systemBold"/>
@@ -689,7 +689,7 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <box autoresizesSubviews="NO" borderType="line" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="26O-3u-NbR">
+                    <box autoresizesSubviews="NO" fixedFrame="YES" borderType="line" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="26O-3u-NbR">
                         <rect key="frame" x="19" y="104" width="346" height="139"/>
                         <view key="contentView">
                             <rect key="frame" x="1" y="1" width="344" height="137"/>
@@ -754,14 +754,6 @@
                         </textFieldCell>
                     </textField>
                 </subviews>
-                <constraints>
-                    <constraint firstItem="HMt-1W-pze" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="72" id="1Hp-31-Eid"/>
-                    <constraint firstItem="26O-3u-NbR" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="45" id="92G-TV-HCw"/>
-                    <constraint firstItem="26O-3u-NbR" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="22" id="WUR-DC-Rm5"/>
-                    <constraint firstItem="26O-3u-NbR" firstAttribute="top" secondItem="HMt-1W-pze" secondAttribute="bottom" constant="8" symbolic="YES" id="e2G-vd-pP4"/>
-                    <constraint firstAttribute="bottom" secondItem="26O-3u-NbR" secondAttribute="bottom" constant="108" id="hWD-ag-8UM"/>
-                    <constraint firstAttribute="trailing" secondItem="26O-3u-NbR" secondAttribute="trailing" constant="20" symbolic="YES" id="u6b-fm-0zJ"/>
-                </constraints>
             </view>
             <point key="canvasLocation" x="281" y="206"/>
         </window>

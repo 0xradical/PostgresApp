@@ -70,6 +70,16 @@
     return [NSString stringWithUTF8String:field];
 }
 
+- (void)setValue:(NSString *)value forRow:(NSUInteger)row AndColumn:(NSUInteger)column
+{
+    char *val = malloc(sizeof(char*)*([value length] + 1));
+    
+    strcpy(val, [value UTF8String]);
+    
+    PQsetvalue(_result, (int)row, (int)column, val, 0);
+
+}
+
 - (void)dealloc
 {
     PQclear(_result);
