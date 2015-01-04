@@ -50,6 +50,9 @@
     _currentTable = [aNotification object];
     _offset = 0;
     
+    // Naively uses the first PK to set the default order
+    // With composite primary keys, one of the columns
+    // defined in the PK clause will be returned
     NSString *pkQuery = [NSString stringWithFormat:@"SELECT \
                          pg_attribute.attname,\
                          format_type(pg_attribute.atttypid, pg_attribute.atttypmod)\
@@ -64,7 +67,6 @@
     _orderBy = [[[self connection] execute:pkQuery] valueForRow:0 AndColumn:0];
     
     NSString *query = [NSString stringWithFormat:@"SELECT * FROM %@ ORDER BY %@ OFFSET %@ LIMIT 20", _currentTable, _orderBy, @(_offset)];
-    
     
     [self loadContentByQuery:query];
     

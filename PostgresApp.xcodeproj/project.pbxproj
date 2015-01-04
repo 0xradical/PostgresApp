@@ -28,6 +28,7 @@
 		AFDE25CB1A4A2F18009B71F6 /* libpqtypes.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AFDE25C91A4A2F18009B71F6 /* libpqtypes.a */; };
 		AFEF8E581A5171E1006700FE /* NoodleLineNumberMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = AFEF8E551A5171E1006700FE /* NoodleLineNumberMarker.m */; };
 		AFEF8E591A5171E1006700FE /* NoodleLineNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = AFEF8E571A5171E1006700FE /* NoodleLineNumberView.m */; };
+		AFF0730E1A58D8F200266B39 /* StructureController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFF0730D1A58D8F200266B39 /* StructureController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,8 @@
 		AFEF8E551A5171E1006700FE /* NoodleLineNumberMarker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoodleLineNumberMarker.m; path = PostgresApp/NoodleLineNumberMarker.m; sourceTree = SOURCE_ROOT; };
 		AFEF8E561A5171E1006700FE /* NoodleLineNumberView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoodleLineNumberView.h; path = PostgresApp/NoodleLineNumberView.h; sourceTree = SOURCE_ROOT; };
 		AFEF8E571A5171E1006700FE /* NoodleLineNumberView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoodleLineNumberView.m; path = PostgresApp/NoodleLineNumberView.m; sourceTree = SOURCE_ROOT; };
+		AFF0730C1A58D8F200266B39 /* StructureController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StructureController.h; sourceTree = SOURCE_ROOT; };
+		AFF0730D1A58D8F200266B39 /* StructureController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StructureController.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,6 +238,8 @@
 				AF611D331A53A9AD004804AF /* TablesController.m */,
 				AF611D381A54576F004804AF /* ContentController.h */,
 				AF611D391A54576F004804AF /* ContentController.m */,
+				AFF0730C1A58D8F200266B39 /* StructureController.h */,
+				AFF0730D1A58D8F200266B39 /* StructureController.m */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -368,6 +373,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF611D341A53A9AD004804AF /* TablesController.m in Sources */,
+				AFF0730E1A58D8F200266B39 /* StructureController.m in Sources */,
 				AFEF8E591A5171E1006700FE /* NoodleLineNumberView.m in Sources */,
 				AFDE25B51A4A2E3B009B71F6 /* PGConnection.m in Sources */,
 				AFDE25B61A4A2E3B009B71F6 /* PGResult.m in Sources */,
