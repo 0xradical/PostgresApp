@@ -16,6 +16,7 @@
 {
     PGResult *_result;
     NSString *_currentTable;
+    NSString *_orderBy;
     NSUInteger _offset;
 }
 @property (weak) IBOutlet DBWindowController *dbWindowController;
@@ -48,8 +49,22 @@
     
     _currentTable = [aNotification object];
     _offset = 0;
-        
-    NSString *query = [NSString stringWithFormat:@"SELECT * FROM %@ OFFSET %@ LIMIT 20", _currentTable, @(_offset)];
+    
+    NSString *pkQuery = [NSString stringWithFormat:@"SELECT \
+                         pg_attribute.attname,\
+                         format_type(pg_attribute.atttypid, pg_attribute.atttypmod)\
+                         FROM pg_index, pg_class, pg_attribute\
+                         WHERE\
+                         pg_class.oid = '%@'::regclass AND\
+                         indrelid = pg_class.oid AND\
+                         pg_attribute.attrelid = pg_class.oid AND\
+                         pg_attribute.attnum = any(pg_index.indkey)\
+                         AND indisprimary LIMIT 1", _currentTable];
+
+    _orderBy = [[[self connection] execute:pkQuery] valueForRow:0 AndColumn:0];
+    
+    NSString *query = [NSString stringWithFormat:@"SELECT * FROM %@ ORDER BY %@ OFFSET %@ LIMIT 20", _currentTable, _orderBy, @(_offset)];
+    
     
     [self loadContentByQuery:query];
     
@@ -62,7 +77,7 @@
 {
     _offset = _offset - 20;
     
-    NSString *query = [NSString stringWithFormat:@"SELECT * FROM %@ OFFSET %@ LIMIT 20", _currentTable, @(_offset)];
+    NSString *query = [NSString stringWithFormat:@"SELECT * FROM %@ ORDER BY %@ OFFSET %@ LIMIT 20", _currentTable, _orderBy, @(_offset)];
     
     [self loadContentByQuery:query];
     
@@ -79,7 +94,7 @@
 {
     _offset = _offset + 20;
     
-    NSString *query = [NSString stringWithFormat:@"SELECT * FROM %@ OFFSET %@ LIMIT 20", _currentTable, @(_offset)];
+    NSString *query = [NSString stringWithFormat:@"SELECT * FROM %@ ORDER BY %@ OFFSET %@ LIMIT 20", _currentTable, _orderBy, @(_offset)];
     
     [self loadContentByQuery:query];
     

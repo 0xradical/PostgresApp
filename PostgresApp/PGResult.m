@@ -77,6 +77,8 @@
     strcpy(val, [value UTF8String]);
     
     PQsetvalue(_result, (int)row, (int)column, val, (int)[value length]);
+    
+    free(val);
 
 }
 
