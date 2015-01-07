@@ -184,7 +184,6 @@
 - (void)dealloc
 {
     NSLog(@"Deallocing connection");
-    PQfinish(_connection);
 }
 
 @end

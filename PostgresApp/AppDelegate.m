@@ -26,15 +26,7 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    
-    PGConnection *connection = [[PGConnection alloc] initWithDelegate:self];
-    
-    [self setConnection:connection];
-    
-    _dbWindowController = [[DBWindowController alloc] initWithConnection:[self connection]];
-    
     NSLog(@"Application finished launching");
-
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification
@@ -47,6 +39,12 @@
 
 - (IBAction)connect:(id)sender
 {
+    PGConnection *connection = [[PGConnection alloc] initWithDelegate:self];
+    
+    [self setConnection:connection];
+    
+    _dbWindowController = [[DBWindowController alloc] initWithConnection:[self connection]];
+        
     [[self connection] setUser:[[self user] stringValue]];
     [[self connection] setPassword:[[self password] stringValue]];
     

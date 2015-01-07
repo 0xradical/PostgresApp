@@ -37,6 +37,11 @@
 {
     self.customQuery.font = [NSFont userFixedPitchFontOfSize:14.0f];
     
+    // http://stackoverflow.com/questions/19801601/nstextview-with-smart-quotes-disabled-still-replaces-quotes
+    self.customQuery.automaticQuoteSubstitutionEnabled = NO;
+    self.customQuery.automaticDashSubstitutionEnabled = NO;
+    self.customQuery.automaticTextReplacementEnabled = NO;
+    
     _lineNumberView = [[NoodleLineNumberView alloc] initWithScrollView:[self.customQuery enclosingScrollView]];
     
     [[self.customQuery enclosingScrollView] setVerticalRulerView:_lineNumberView];
