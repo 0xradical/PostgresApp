@@ -10,20 +10,21 @@
 #import "PGConnectionDelegate.h"
 #import "PGResult.h"
 #import "libpq-fe.h"
+#import <pthread.h>
 #import <poll.h>
 
 @interface PGConnection ()
 {
     PGconn *_connection;
     NSString *_connectionParameters;
-    id<PGConnectionDelegate> _delegate;
+    NSObject<PGConnectionDelegate> *_delegate;
 }
 @end
 
 @implementation PGConnection
 
 
-- (instancetype)initWithDelegate:(id<PGConnectionDelegate>)delegate
+- (instancetype)initWithDelegate:(NSObject<PGConnectionDelegate>*)delegate
 {
     self = [super init];
     
@@ -169,13 +170,13 @@
     
     if (pollStatus == PGRES_POLLING_OK && [self isConnected]) {
         if (_delegate) {
-            [_delegate connectionEstablished:self];
+            [_delegate performSelectorOnMainThread:@selector(connectionEstablished:) withObject:self waitUntilDone:NO];
         }
     }
     else {
         NSLog(@"Polling error: %@", [[NSString alloc] initWithUTF8String:PQerrorMessage(_connection)]);
         if (_delegate) {
-            [_delegate connectionFailed:self];
+            [_delegate performSelectorOnMainThread:@selector(connectionFailed:) withObject:self waitUntilDone:NO];
         }
     }
     

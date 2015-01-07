@@ -20,7 +20,7 @@
 @property (nonatomic) NSString* hostAddress;
 @property (nonatomic) NSString* port;
 
-- (instancetype)initWithDelegate:(id<PGConnectionDelegate>)delegate;
+- (instancetype)initWithDelegate:(NSObject<PGConnectionDelegate>*)delegate;
 - (BOOL)isConnected;
 - (BOOL)connect;
 - (PGResult *)execute:(NSString *)query;
