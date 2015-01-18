@@ -13,5 +13,6 @@
 
 - (instancetype)initWithConnection:(PGConnection *)connection;
 - (PGConnection *)connection;
+- (void)setConnection:(PGConnection*)connection;
 
 @end

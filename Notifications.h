@@ -7,3 +7,7 @@
 //
 
 extern NSString* const kTableCellWasSelected;
+
+extern NSString* const kDatabaseWasChanged;
+
+extern NSString* const kConnectionWasChanged;

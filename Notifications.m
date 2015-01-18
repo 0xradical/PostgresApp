@@ -9,3 +9,8 @@
 #import <Foundation/Foundation.h>
 
 NSString* const kTableCellWasSelected = @"kTableCellWasSelected";
+
+NSString* const kDatabaseWasChanged = @"kDatabaseWasChanged";
+
+NSString* const kConnectionWasChanged =
+    @"kConnectionWasChanged";

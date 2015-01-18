@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "PGConnection.h"
 #import "DBWindowController.h"
+#import "Notifications.h"
 
 @interface AppDelegate ()
 {
@@ -27,6 +28,10 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     NSLog(@"Application finished launching");
+    
+    // Notification received from DatabasesController
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadDatabase:) name:kDatabaseWasChanged object:nil];
+    
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification
@@ -35,20 +40,31 @@
 }
 
 #pragma mark -
+#pragma mark Notification Center - Database changed
+- (void)loadDatabase:(NSNotification *)aNotification
+{
+    NSString* selectedDatabase = [aNotification object];
+    
+    PGConnection *connection = [[PGConnection alloc] initWithDelegate:self];
+    
+    [connection setUser:[[self user] stringValue]];
+    [connection setPassword:[[self password] stringValue]];
+    [connection setDatabase:selectedDatabase];
+    
+    [connection connect];
+}
+
+#pragma mark -
 #pragma mark IBActions
 
 - (IBAction)connect:(id)sender
 {
     PGConnection *connection = [[PGConnection alloc] initWithDelegate:self];
-    
-    [self setConnection:connection];
-    
-    _dbWindowController = [[DBWindowController alloc] initWithConnection:[self connection]];
         
-    [[self connection] setUser:[[self user] stringValue]];
-    [[self connection] setPassword:[[self password] stringValue]];
+    [connection setUser:[[self user] stringValue]];
+    [connection setPassword:[[self password] stringValue]];
     
-    [[self connection] connect];
+    [connection connect];
 }
 
 #pragma mark -
@@ -56,7 +72,15 @@
 
 - (void)connectionEstablished:(PGConnection *)connection
 {
-    [_dbWindowController showWindow:nil];
+    if (_dbWindowController) {
+        [_dbWindowController setConnection:connection];
+    } else {
+        _dbWindowController = [[DBWindowController alloc] initWithConnection:connection];
+        [_dbWindowController showWindow:nil];
+    }
+    
+    // Notify that connection was changed
+    [[NSNotificationCenter defaultCenter] postNotificationName:kConnectionWasChanged object:connection];
 }
 
 - (void)connectionFailed:(PGConnection *)connection

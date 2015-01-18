@@ -41,4 +41,9 @@
     return _connection;
 }
 
+- (void)setConnection:(PGConnection *)connection
+{
+    _connection = connection;
+}
+
 @end

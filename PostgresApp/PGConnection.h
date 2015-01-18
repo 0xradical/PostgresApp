@@ -25,5 +25,8 @@
 - (BOOL)connect;
 - (PGResult *)execute:(NSString *)query;
 - (NSString *)lastErrorMessage;
+- (NSArray*)availableDatabases;
+- (NSString*)currentDatabase;
+- (NSArray*)columnsForTable:(NSString*)table;
 
 @end

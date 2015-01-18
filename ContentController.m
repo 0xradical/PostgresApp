@@ -53,18 +53,17 @@
     // Naively uses the first PK to set the default order
     // With composite primary keys, one of the columns
     // defined in the PK clause will be returned
-    NSString *pkQuery = [NSString stringWithFormat:@"SELECT \
-                         pg_attribute.attname,\
-                         format_type(pg_attribute.atttypid, pg_attribute.atttypmod)\
-                         FROM pg_index, pg_class, pg_attribute\
-                         WHERE\
-                         pg_class.oid = '%@'::regclass AND\
-                         indrelid = pg_class.oid AND\
-                         pg_attribute.attrelid = pg_class.oid AND\
-                         pg_attribute.attnum = any(pg_index.indkey)\
-                         AND indisprimary LIMIT 1", _currentTable];
+    NSString *pkQuery = [NSString stringWithFormat:@"SELECT pg_attribute.attname, format_type(pg_attribute.atttypid, pg_attribute.atttypmod) FROM pg_index, pg_class, pg_attribute WHERE pg_class.oid = '%@'::regclass AND indrelid = pg_class.oid AND pg_attribute.attrelid = pg_class.oid AND pg_attribute.attnum = any(pg_index.indkey) AND indisprimary LIMIT 1", _currentTable];
 
-    _orderBy = [[[self connection] execute:pkQuery] valueForRow:0 AndColumn:0];
+    PGResult *result = [[self connection] execute:pkQuery];
+    
+    // if there's a PK, order by that, otherwise
+    // pick the first column of the table
+    if ([result rowsCount] > 0) {
+        _orderBy = [result valueForRow:0 AndColumn:0];
+    } else {
+        _orderBy = [[self connection] columnsForTable:_currentTable][0];
+    }
     
     NSString *query = [NSString stringWithFormat:@"SELECT * FROM %@ ORDER BY %@ OFFSET %@ LIMIT 20", _currentTable, _orderBy, @(_offset)];
     

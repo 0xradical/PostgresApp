@@ -13,7 +13,5 @@
 
 @interface AppDelegate : NSObject <NSApplicationDelegate, PGConnectionDelegate>
 
-@property (nonatomic) PGConnection* connection;
-
 @end
 

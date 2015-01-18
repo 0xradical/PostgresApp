@@ -7,7 +7,6 @@
 //
 
 #import "TablesController.h"
-#import "DBWindowController.h"
 #import "Notifications.h"
 #import "PGConnection.h"
 #import "PGResult.h"
@@ -16,7 +15,6 @@
 {
     PGResult *_result;
 }
-@property (weak) IBOutlet DBWindowController *dbWindowController;
 @property (weak) IBOutlet NSTableView *tables;
 
 @end
@@ -31,10 +29,19 @@
 
 - (void)awakeFromNib
 {
-    _result = [[self connection] execute:@"SELECT table_name FROM information_schema.tables WHERE table_schema = 'public' ORDER BY table_name"];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTables:) name:kConnectionWasChanged object:nil];
+   
+}
+
+#pragma mark -
+#pragma mark Notification Center - Connection changed
+- (void)reloadTables:(NSNotification *)aNotification
+{
+    PGConnection* connection = [aNotification object];
+    
+    _result = [connection execute:@"SELECT table_name FROM information_schema.tables WHERE table_schema = 'public' ORDER BY table_name"];
     
     [[self tables] reloadData];
-   
 }
 
 #pragma mark -
@@ -64,14 +71,6 @@
         // Announce that current table changed
         [[NSNotificationCenter defaultCenter] postNotificationName:kTableCellWasSelected object:[_result valueForRow:selectedRow AndColumn:0]];
     }
-}
-
-#pragma mark -
-#pragma Methods delegated to DBWindowController
-
-- (PGConnection *)connection
-{
-    return [[self dbWindowController] connection];
 }
 
 @end

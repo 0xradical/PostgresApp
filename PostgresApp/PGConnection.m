@@ -101,6 +101,50 @@
     return [[PGResult alloc] initWithResult:result];
 }
 
+- (NSArray *)availableDatabases {
+    NSMutableArray *mutableDatabases = [[NSMutableArray alloc] init];
+    
+    NSString *query = @"SELECT datname FROM pg_database WHERE datacl IS NULL ORDER BY datname ASC";
+    
+    PGresult *res = PQexec(_connection, [query UTF8String]);
+    
+    PGResult *result = [[PGResult alloc] initWithResult:res];
+    
+    for (int i = 0; i < [result rowsCount]; i++) {
+        [mutableDatabases addObject:[result valueForRow:i AndColumn:0]];
+    }
+    
+    return mutableDatabases;
+}
+
+- (NSString*)currentDatabase
+{
+    NSString *query = @"SELECT current_database()";
+    
+    PGresult *res = PQexec(_connection, [query UTF8String]);
+    
+    PGResult *result = [[PGResult alloc] initWithResult:res];
+    
+    return [result valueForRow:0 AndColumn:0];
+
+}
+
+- (NSArray*)columnsForTable:(NSString*)table
+{
+    NSMutableArray *columns = [[NSMutableArray alloc] init];
+
+    NSString *columnsQuery = [NSString stringWithFormat:@"SELECT attname FROM   pg_attribute WHERE  attrelid =  '%@'::regclass AND attnum > 0 AND NOT attisdropped ORDER  BY attnum", table];
+    
+    PGresult *res = PQexec(_connection, [columnsQuery UTF8String]);
+    
+    PGResult *result = [[PGResult alloc] initWithResult:res];
+    
+    for (int i = 0; i < [result rowsCount]; i++) {
+        [columns addObject:[result valueForRow:i AndColumn:0]];
+    }
+    
+    return columns;
+}
 
 #pragma mark -
 #pragma mark Private API
