@@ -512,6 +512,11 @@
                 <outlet property="dbWindowController" destination="-2" id="OVX-qw-Te0"/>
             </connections>
         </viewController>
+        <customObject id="wFD-Dd-vBG" customClass="SQLSyntaxHighlighter">
+            <connections>
+                <outlet property="customQuery" destination="Cg2-Z9-pAd" id="Iue-r9-9rs"/>
+            </connections>
+        </customObject>
     </objects>
     <resources>
         <image name="button_bar_spacer" width="10" height="23"/>
