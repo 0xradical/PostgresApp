@@ -42,7 +42,7 @@
 {
     _currentTable = [aNotification object];
     
-    NSString *query = [NSString stringWithFormat:@"SELECT column_name, data_type, character_maximum_length FROM information_schema.columns WHERE table_name = '%@'", _currentTable];
+    NSString *query = [NSString stringWithFormat:@"SELECT column_name, data_type, character_maximum_length, column_default FROM information_schema.columns WHERE table_name = '%@'", _currentTable];
     
     _result = [[self connection] execute:query];
     
