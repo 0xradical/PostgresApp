@@ -41,7 +41,12 @@
     
     _result = [connection execute:@"SELECT table_name FROM information_schema.tables WHERE table_schema = 'public' ORDER BY table_name"];
     
-    [[self tables] reloadData];
+    [self.tables reloadData];
+    
+    if ([_result rowsCount] > 0) {
+        NSIndexSet *indexSet = [NSIndexSet indexSetWithIndex:0];
+        [self.tables selectRowIndexes:indexSet byExtendingSelection:NO];
+    }
 }
 
 #pragma mark -
